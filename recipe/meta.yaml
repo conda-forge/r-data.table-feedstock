@@ -1,4 +1,4 @@
-{% set version = '1.10.4' %}
+{% set version = "1.11.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/data.table_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: 865fdf6aad389071ad063ec1c75a78ffc86eeb88bba011f3ea5281d243966b7a
+  sha256: ae81e07a39ef0cb65751c8987df21246d57ebc5e4ef7e9c511225a9d58193758
 
 build:
   number: 0
