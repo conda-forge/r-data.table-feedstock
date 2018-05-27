@@ -1,7 +1,7 @@
-{% set version = '1.10.4' %}
-
+{% set version = '1.11.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
+{% set cran_mirror = 'https://cran.r-project.org' %}
 
 package:
   name: r-data.table
@@ -10,31 +10,32 @@ package:
 source:
   fn: data.table_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/data.table_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: 865fdf6aad389071ad063ec1c75a78ffc86eeb88bba011f3ea5281d243966b7a
+    - {{ cran_mirror }}/src/contrib/data.table_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
+  sha256: 44f548517426c0444f7ce993bf93350be9f31e214d3dad39f9a680a53f9e6e64
 
 build:
   number: 0
-  skip: true  # [win32]
-
+  skip: true  # [win]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+  host:
     - r-base
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('data.table')"  # [not win]
+    - $R -e "library('data.table')"           # [not win]
     - "\"%R%\" -e \"library('data.table')\""  # [win]
 
 about:
@@ -50,3 +51,4 @@ extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - nick-youngblut
