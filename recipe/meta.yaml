@@ -1,6 +1,7 @@
 {% set version = '1.11.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
+{% set cran_mirror = 'https://cran.r-project.org' %}
 
 package:
   name: r-data.table
@@ -50,3 +51,4 @@ extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - nick-youngblut
