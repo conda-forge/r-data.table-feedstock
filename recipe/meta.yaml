@@ -1,7 +1,6 @@
-{% set version = "1.11.4" %}
+{% set version = '1.11.4' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
-{% set cran_mirror = 'https://cran.r-project.org' %}
 
 package:
   name: r-data.table
@@ -15,8 +14,9 @@ source:
   sha256: fdccf1dec3f38bb344163163decf3ffa0c0f8e2c70daa1bec8aac422716e81d5
 
 build:
-  number: 0
-  skip: true  # [win]
+  merge_build_host: True  # [win]
+  number: 1
+  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -27,6 +27,9 @@ requirements:
     - {{native}}toolchain        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
   run:
@@ -40,15 +43,17 @@ test:
 
 about:
   home: http://r-datatable.com
-  license: GPL-3
-  license_file: LICENSE
+  license: MPL-2.0
   summary: Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete
-    of columns by group using no copies at all, list columns, a fast friendly file reader
-    and parallel file writer. Offers a natural and flexible syntax, for faster development.
-  license_family: GPL3
+    of columns by group using no copies at all, list columns, friendly and fast character-separated-value
+    read/write. Offers a natural and flexible syntax, for faster development.
+  license_family: OTHER
 
 extra:
   recipe-maintainers:
+    - nick-youngblut
     - johanneskoester
     - bgruening
-    - nick-youngblut
+    - daler
+    - jdblischak
+    - cbrueffer
