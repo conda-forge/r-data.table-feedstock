@@ -32,9 +32,11 @@ requirements:
     - {{posix}}zip               # [win]
   host:
     - r-base
+    - llvm-openmp
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
+    - llvm-openmp
 
 test:
   commands:
