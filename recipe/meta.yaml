@@ -1,4 +1,4 @@
-{% set version = '1.11.4' %}
+{% set version = '1.11.8' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/data.table_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: fdccf1dec3f38bb344163163decf3ffa0c0f8e2c70daa1bec8aac422716e81d5
+  sha256: dc427465599cadd848b28a78e2fce3362867847b44148252054385999fe566d9
 
 build:
   merge_build_host: True  # [win]
-  number: 1002
-  skip: true  # [win32]
+  number: 1003
   rpaths:
     - lib/R/lib/
     - lib/
@@ -60,3 +59,4 @@ extra:
     - jdblischak
     - cbrueffer
     - dbast
+    - dpryan79
