@@ -1,4 +1,4 @@
-{% set version = '1.11.8' %}
+{% set version = '1.12.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,15 +7,14 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: data.table_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/data.table_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: dc427465599cadd848b28a78e2fce3362867847b44148252054385999fe566d9
+  sha256: 611b112123dbd4ebd5200770fcdfaaeaab622adeb2b290d36018d3092742e3f7
 
 build:
   merge_build_host: True  # [win]
-  number: 1000
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -52,11 +51,25 @@ about:
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - nick-youngblut
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
-    - dpryan79
+
+# Package: data.table
+# Version: 1.12.0
+# Title: Extension of `data.frame`
+# Authors@R: c( person("Matt","Dowle",      role=c("aut","cre"), email="mattjdowle@gmail.com"), person("Arun","Srinivasan", role="aut",          email="arunkumar.sriniv@gmail.com"), person("Jan","Gorecki",     role="ctb"), person("Michael","Chirico", role="ctb"), person("Pasha","Stetsenko", role="ctb"), person("Tom","Short",       role="ctb"), person("Steve","Lianoglou", role="ctb"), person("Eduard","Antonyan", role="ctb"), person("Markus","Bonsch",   role="ctb"), person("Hugh","Parsonage",  role="ctb"), person("Scott","Ritchie",   role="ctb"))
+# Depends: R (>= 3.1.0)
+# Imports: methods
+# Suggests: bit64, curl, R.utils, knitr, xts, nanotime, zoo
+# Description: Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, friendly and fast character-separated-value read/write. Offers a natural and flexible syntax, for faster development.
+# License: MPL-2.0 | file LICENSE
+# URL: http://r-datatable.com
+# BugReports: https://github.com/Rdatatable/data.table/issues
+# VignetteBuilder: knitr
+# ByteCompile: TRUE
+# NeedsCompilation: yes
+# Packaged: 2019-01-12 04:09:37.913 UTC; mdowle
+# Author: Matt Dowle [aut, cre], Arun Srinivasan [aut], Jan Gorecki [ctb], Michael Chirico [ctb], Pasha Stetsenko [ctb], Tom Short [ctb], Steve Lianoglou [ctb], Eduard Antonyan [ctb], Markus Bonsch [ctb], Hugh Parsonage [ctb], Scott Ritchie [ctb]
+# Maintainer: Matt Dowle <mattjdowle@gmail.com>
+# Repository: CRAN
+# Date/Publication: 2019-01-13 11:50:03 UTC
