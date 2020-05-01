@@ -13,8 +13,8 @@ source:
   sha256: d3a75f3a355ff144cc20a476041617e21fcf2a9f79265fd9bbd4693f3671f9dc
 
 build:
-  merge_build_host: True  # [win]
-  number: 0
+  merge_build_host: true  # [win]
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,17 +23,17 @@ requirements:
   build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{posix}}filesystem        # [win]
-    - {{posix}}make
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
-    - {{posix}}zip               # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
     - llvm-openmp                # [osx]
   host:
     - r-base
   run:
     - r-base
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - llvm-openmp                # [osx]
 
 test:
@@ -44,11 +44,11 @@ test:
 about:
   home: http://r-datatable.com
   license: MPL-2.0
-  summary: Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete
-    of columns by group using no copies at all, list columns, friendly and fast character-separated-value
-    read/write. Offers a natural and flexible syntax, for faster development.
+  summary: Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, friendly and fast character-separated-value read/write. Offers a natural and flexible syntax, for faster development.
   license_family: OTHER
 
+  license_file:
+    - LICENSE
 extra:
   recipe-maintainers:
     - conda-forge/r
