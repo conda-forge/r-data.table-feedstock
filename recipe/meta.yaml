@@ -34,9 +34,12 @@ requirements:
     - r-base
     - libgomp                    # [linux]
     - llvm-openmp                # [osx]
+    - zlib                       # [not win]
+    - {{ native }}zlib           # [win]
   run:
     - r-base
     - {{ native }}gcc-libs       # [win]
+    - {{ native }}zlib           # [win]
 
 test:
   commands:
