@@ -3,11 +3,15 @@ About r-data.table-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-data.table-feedstock/blob/main/LICENSE.txt)
 
-Home: http://r-datatable.com
+Home: https://r-datatable.com
 
 Package license: MPL-2.0
 
 Summary: Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, friendly and fast character-separated-value read/write. Offers a natural and flexible syntax, for faster development.
+
+Development: https://github.com/Rdatatable/data.table
+
+Documentation: https://rdatatable.gitlab.io/data.table/
 
 Current build status
 ====================
