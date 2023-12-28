@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -43,8 +43,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('data.table')"           # [not win]
-    - "\"%R%\" -e \"library('data.table')\""  # [win]
+    - Rscript -e "require('data.table'); data.table::test.data.table()"
 
 about:
   home: https://r-datatable.com
