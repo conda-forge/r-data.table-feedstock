@@ -42,8 +42,14 @@ requirements:
     - {{ native }}zlib           # [win]
 
 test:
+  requires:
+    - r-bit64
+    - r-r.utils
   commands:
-    - Rscript -e "require('data.table'); data.table::test.data.table()"
+    - $R -e "library('data.table')"                   # [not win]
+    - $R -e "data.table::test.data.table()"           # [not win]
+    - "\"%R%\" -e \"library('data.table')\""          # [win]
+    - "\"%R%\" -e \"data.table::test.data.table()\""  # [win]
 
 about:
   home: https://r-datatable.com
