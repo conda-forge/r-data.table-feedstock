@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -42,9 +42,14 @@ requirements:
     - {{ native }}zlib           # [win]
 
 test:
+  requires:
+    - r-bit64
+    - r-r.utils
   commands:
-    - $R -e "library('data.table')"           # [not win]
-    - "\"%R%\" -e \"library('data.table')\""  # [win]
+    - $R -e "library('data.table')"                   # [not win]
+    - $R -e "data.table::test.data.table()"           # [not win]
+    - "\"%R%\" -e \"library('data.table')\""          # [win]
+    - "\"%R%\" -e \"data.table::test.data.table()\""  # [win]
 
 about:
   home: https://r-datatable.com
