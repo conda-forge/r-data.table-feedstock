@@ -46,10 +46,10 @@ test:
     - r-bit64
     - r-r.utils
   commands:
-    - $R -e "library('data.table')"                   # [not win]
-    - $R -e "data.table::test.data.table()"           # [not win]
-    - "\"%R%\" -e \"library('data.table')\""          # [win]
-    - "\"%R%\" -e \"data.table::test.data.table()\""  # [win]
+    - $R -e "library('data.table')"                             # [not win]
+    - $R -e "library('data.table');test.data.table()"           # [not win]
+    - "\"%R%\" -e \"library('data.table')\""                    # [win]
+    - "\"%R%\" -e \"library('data.table');test.data.table()\""  # [win]
 
 about:
   home: https://r-datatable.com
