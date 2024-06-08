@@ -21,4 +21,4 @@ r_base:
 target_platform:
 - linux-ppc64le
 zlib:
-- '1.2'
+- '1'
