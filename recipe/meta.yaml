@@ -14,10 +14,11 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
+  skip: true  # [win]
 
 requirements:
   build:
@@ -30,16 +31,13 @@ requirements:
     - {{ posix }}coreutils       # [win]
     - {{ posix }}zip             # [win]
     - pkg-config
-  host:
-    - r-base
     - libgomp                    # [linux]
     - llvm-openmp                # [osx]
-    - zlib                       # [not win]
-    - {{ native }}zlib           # [win]
+  host:
+    - r-base
+    - zlib
   run:
     - r-base
-    - {{ native }}gcc-libs       # [win]
-    - {{ native }}zlib           # [win]
 
 test:
   requires:
