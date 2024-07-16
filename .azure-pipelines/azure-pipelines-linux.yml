@@ -8,36 +8,36 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_r_base4.2:
-        CONFIG: linux_64_r_base4.2
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_64_r_base4.2
       linux_64_r_base4.3:
         CONFIG: linux_64_r_base4.3
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_r_base4.3
-      linux_aarch64_r_base4.2:
-        CONFIG: linux_aarch64_r_base4.2
+      linux_64_r_base4.4:
+        CONFIG: linux_64_r_base4.4
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_aarch64_r_base4.2
+        SHORT_CONFIG: linux_64_r_base4.4
       linux_aarch64_r_base4.3:
         CONFIG: linux_aarch64_r_base4.3
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_aarch64_r_base4.3
-      linux_ppc64le_r_base4.2:
-        CONFIG: linux_ppc64le_r_base4.2
+      linux_aarch64_r_base4.4:
+        CONFIG: linux_aarch64_r_base4.4
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
-        SHORT_CONFIG: linux_ppc64le_r_base4.2
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+        SHORT_CONFIG: linux_aarch64_r_base4.4
       linux_ppc64le_r_base4.3:
         CONFIG: linux_ppc64le_r_base4.3
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
         SHORT_CONFIG: linux_ppc64le_r_base4.3
+      linux_ppc64le_r_base4.4:
+        CONFIG: linux_ppc64le_r_base4.4
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
+        SHORT_CONFIG: linux_ppc64le_r_base4.4
   timeoutInMinutes: 360
   variables: {}
 
