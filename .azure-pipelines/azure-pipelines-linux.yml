@@ -31,12 +31,12 @@ jobs:
       linux_ppc64le_r_base4.3:
         CONFIG: linux_ppc64le_r_base4.3
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_ppc64le_r_base4.3
       linux_ppc64le_r_base4.4:
         CONFIG: linux_ppc64le_r_base4.4
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_ppc64le_r_base4.4
   timeoutInMinutes: 360
   variables: {}
