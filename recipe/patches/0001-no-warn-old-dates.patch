@@ -1,0 +1,49 @@
+From 01e94b9693c26e702e35a32d12d967d7c0c7781b Mon Sep 17 00:00:00 2001
+From: Michael Chirico <chiricom@google.com>
+Date: Mon, 20 May 2024 11:33:41 -0700
+Subject: [PATCH 1/2] Warning will not throw again now that it's captured in
+ base_messages
+
+---
+ inst/tests/tests.Rraw | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/inst/tests/tests.Rraw b/inst/tests/tests.Rraw
+index 6263b833d..01d225045 100644
+--- a/inst/tests/tests.Rraw
++++ b/inst/tests/tests.Rraw
+@@ -16915,8 +16915,7 @@ if (.Platform$OS.type!="windows") {
+ test(2150.025,
+      env=list(TZ=NULL),
+      attr(fread(tmp, colClasses=list(POSIXct="times"), tz="")$times, "tzone"),
+-     if (is.null(base_messages$maybe_invalid_old_posixct)) "" else NULL,
+-     warning=base_messages$maybe_invalid_old_posixct)
++     if (is.null(base_messages$maybe_invalid_old_posixct)) "" else NULL)
+ # the times will be different though here because as.POSIXct read them as local time.
+ fwrite(copy(DT)[ , times := format(times, '%FT%T+00:00')], tmp)
+ test(2150.03, fread(tmp), DT)
+
+From 1d542d8027ffeccafb7ef5b17c26baae99add505 Mon Sep 17 00:00:00 2001
+From: Benjamin Schwendinger <benjaminschwe@gmail.com>
+Date: Wed, 29 May 2024 15:43:56 +0200
+Subject: [PATCH 2/2] alter testcase to pre #5867 since warning is now captured
+ with base_messages
+
+---
+ inst/tests/tests.Rraw | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/inst/tests/tests.Rraw b/inst/tests/tests.Rraw
+index b08224e54..e8aaaa73c 100644
+--- a/inst/tests/tests.Rraw
++++ b/inst/tests/tests.Rraw
+@@ -16920,7 +16920,7 @@ if (.Platform$OS.type!="windows") {
+ test(2150.025,
+      env=list(TZ=NULL),
+      attr(fread(tmp, colClasses=list(POSIXct="times"), tz="")$times, "tzone"),
+-     if (is.null(base_messages$maybe_invalid_old_posixct)) "" else NULL)
++     "")
+ # the times will be different though here because as.POSIXct read them as local time.
+ fwrite(copy(DT)[ , times := format(times, '%FT%T+00:00')], tmp)
+ test(2150.03, fread(tmp), DT)
+ 
