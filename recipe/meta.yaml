@@ -10,6 +10,8 @@ source:
     - {{ cran_mirror }}/src/contrib/data.table_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
   sha256: ab8065ff946d59ecaaf5eaf91a975495c07c30caad97a71205c72e41a740cb53
+  patches:
+    - patches/0001-no-warn-old-dates.patch
 
 build:
   number: 1
@@ -34,8 +36,7 @@ requirements:
     - r-base
     - libgomp                    # [linux]
     - llvm-openmp                # [osx]
-    - zlib                       # [not win]
-    - zlib           # [win]
+    - zlib
   run:
     - r-base
     - zlib           # [win]
