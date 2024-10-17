@@ -30,6 +30,8 @@ requirements:
     - {{ posix }}coreutils       # [win]
     - {{ posix }}zip             # [win]
     - pkg-config
+    - git                        # [win]
+    - bzip2                      # [win]
   host:
     - r-base
     - libgomp                    # [linux]
@@ -46,7 +48,6 @@ test:
     - $R -e "library('data.table')"                                           # [not win]
     - $R -e "library('data.table');test.data.table()"                         # [not win]
     - "\"%R%\" -e \"library('data.table')\""                                  # [win]
-    - "\"%R%\" -e \"dir.exists('~')\""                                        # [win]
     - "SET TZ=UTC && \"%R%\" -e \"library('data.table');test.data.table()\""  # [win]
 
 about:
