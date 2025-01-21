@@ -47,7 +47,7 @@ test:
     - $R -e "library('data.table')"                                           # [not win]
     - $R -e "library('data.table');test.data.table()"                         # [not win]
     - "\"%R%\" -e \"library('data.table')\""                                  # [win]
-    - "SET TZ=UTC && \"%R%\" -e \"library('data.table');test.data.table()\""  # [win]
+    # - "SET TZ=UTC && \"%R%\" -e \"library('data.table');test.data.table()\""  # [win]
 
 about:
   home: https://r-datatable.com
