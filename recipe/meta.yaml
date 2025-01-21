@@ -37,7 +37,7 @@ requirements:
     - zlib
   run:
     - r-base
-    - zlib           # [win]
+    - libzlib           # [win]
 
 test:
   requires:
