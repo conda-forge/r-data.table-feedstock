@@ -1,4 +1,4 @@
-{% set version = "1.17.2" %}
+{% set version = "1.17.4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/data.table_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: 014037d829c9bebf1ef91f73fcffdb7349196893d1c3eef5bfc71a3e679f1c5b
+  sha256: 396eb2a0e38249310070b60cc6c4e930f2cfc940e6ad0ac62c4c7a5b16390753
 
 build:
   number: 0
