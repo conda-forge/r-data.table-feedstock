@@ -45,7 +45,9 @@ test:
     - r-r.utils
   commands:
     - $R -e "library('data.table')"                                           # [not win]
-    - $R -e "library('data.table');test.data.table()"                         # [not win]
+    # NB: intentionally triggers a warning prior to testing
+    #     see https://github.com/Rdatatable/data.table/issues/6133)
+    - $R -e "as.Date('1901-05-17');library('data.table');test.data.table()"   # [not win]
     - "\"%R%\" -e \"library('data.table')\""                                  # [win]
     # - "SET TZ=UTC && \"%R%\" -e \"library('data.table');test.data.table()\""  # [win]
 
